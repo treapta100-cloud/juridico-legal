@@ -22,7 +22,7 @@
 <body>
 
 <h1>Politică de Confidențialitate</h1>
-<p class="updated">Ultima actualizare: 27 august 2026 &mdash; modificările intră în vigoare la <strong>11 septembrie 2026</strong>, după preavizul de 15 zile. Până la acea dată rămâne aplicabilă versiunea din 20 mai 2026.</p>
+<p class="updated">Ultima actualizare: 25 octombrie 2026 &mdash; în vigoare de la această dată. Actualizarea descrie funcția nouă și opțională „Date cabinet / Raport PDF” și completează lista datelor și a furnizorilor deja utilizați, fără a modifica modul de prelucrare a datelor existente.</p>
 
 <p>Această Politică de Confidențialitate descrie modul în care aplicația <strong>Juridico</strong> („Aplicația", „noi") colectează, utilizează, stochează și protejează datele dumneavoastră cu caracter personal, în conformitate cu Regulamentul (UE) 2016/679 (GDPR) și legislația română aplicabilă.</p>
 
@@ -49,6 +49,16 @@
     <td>Date de cont</td>
     <td>Adresă e-mail, parolă (stocată criptat), nume</td>
     <td>Autentificare și identificare</td>
+  </tr>
+  <tr>
+    <td>Date de profil (opționale)</td>
+    <td>Telefon, număr de înregistrare în barou, baroul</td>
+    <td>Completarea profilului profesional; afișarea în antetul rapoartelor PDF</td>
+  </tr>
+  <tr>
+    <td>Date cabinet (opționale)</td>
+    <td>Denumirea cabinetului, adresa, logo-ul (imagine PNG sau JPG, maximum 1 MB)</td>
+    <td>Antetul rapoartelor PDF generate de dumneavoastră</td>
   </tr>
   <tr>
     <td>Date profesionale</td>
@@ -93,10 +103,14 @@
 
 <h3>2.3 Date accesate cu permisiunea dumneavoastră</h3>
 <ul>
-  <li><strong>Agenda telefonică</strong> — accesat doar la alegerea unui contact pentru o întâlnire; nu stocăm agenda</li>
+  <li><strong>Agenda telefonică</strong> — accesată doar la alegerea unui contact pentru o întâlnire; nu stocăm agenda. Se salvează doar numele și numărul de telefon al contactului ales, în întâlnirea respectivă.</li>
+  <li><strong>Fișiere de pe dispozitiv</strong> — accesate doar când alegeți logo-ul cabinetului. Imaginea aleasă este stocată în contul dumneavoastră, într-un spațiu de stocare privat, accesibil exclusiv contului dumneavoastră, până când o eliminați din Profil sau ștergeți contul.</li>
   <li><strong>Camera / Galeria foto</strong> — accesat doar pentru importul tabelelor de dosare prin OCR. <strong>Important:</strong> imaginea selectată este transmisă serviciului xAI/Grok (SUA) pentru procesare text; nu este stocată permanent. Prin utilizarea funcției de import OCR, vă exprimați consimțământul explicit pentru această transmitere. Dacă nu doriți ca imaginea să fie transmisă unui serviciu extern, nu utilizați funcția OCR.</li>
   <li><strong>Notificări push</strong> — pentru alerte termene judiciare</li>
 </ul>
+
+<h3>2.4 Rapoarte PDF</h3>
+<p>Rapoartele PDF pentru clienți sunt generate <strong>local, pe dispozitivul dumneavoastră</strong>, din datele deja existente în cont (dosare, termene, clienți, date cabinet) și din textele introduse de dumneavoastră la generare. Raportul nu este transmis serverelor Juridico și nu este stocat de noi; textele introduse la generare nu sunt salvate. Trimiterea raportului (e-mail, aplicații de mesagerie etc.) se face de dumneavoastră, prin funcția de partajare a dispozitivului, în calitate de operator al datelor clienților dumneavoastră.</p>
 
 <h2>3. Temeiul Legal al Prelucrării (GDPR Art. 6)</h2>
 <table>
@@ -107,6 +121,10 @@
   <tr>
     <td>Furnizarea serviciului (cont, dosare, termene)</td>
     <td>Executarea contractului (Art. 6 alin. 1 lit. b)</td>
+  </tr>
+  <tr>
+    <td>Date de profil și date cabinet (inclusiv logo) pentru rapoartele PDF</td>
+    <td>Executarea contractului (Art. 6 alin. 1 lit. b) — furnizate opțional, la alegerea utilizatorului</td>
   </tr>
   <tr>
     <td>Notificări push pentru termene</td>
@@ -139,7 +157,7 @@
 </table>
 
 <h2>4. Stocarea Datelor</h2>
-<p><strong>4.1.</strong> Datele dumneavoastră sunt stocate pe serverele <strong>Supabase</strong> (supabase.com), un furnizor de infrastructură cloud cu sediul în SUA, care prelucrează datele în conformitate cu GDPR prin mecanisme de transfer adecvate (Clauze Contractuale Standard — SCC).</p>
+<p><strong>4.1.</strong> Datele dumneavoastră (inclusiv logo-ul cabinetului, dacă îl încărcați) sunt stocate pe serverele <strong>Supabase</strong> (supabase.com), un furnizor de infrastructură cloud cu sediul în SUA, care prelucrează datele în conformitate cu GDPR prin mecanisme de transfer adecvate (Clauze Contractuale Standard — SCC) pentru eventualul acces din afara SEE.</p>
 <p><strong>4.2.</strong> Serverele Supabase utilizate sunt localizate în <strong>regiunea EU West (Irlanda)</strong>.</p>
 <p><strong>4.3.</strong> Datele sunt criptate în tranzit (TLS 1.2+) și în repaus (AES-256).</p>
 <p><strong>4.4.</strong> Parolele sunt stocate exclusiv sub formă de hash criptografic (bcrypt) și nu pot fi recuperate de operator.</p>
@@ -154,15 +172,21 @@
     <th>Mecanism GDPR</th>
   </tr>
   <tr>
-    <td>Supabase (Irlanda/SUA)</td>
-    <td>Bază de date și autentificare</td>
-    <td>Toate datele de cont și profesionale</td>
-    <td>Sediu UE (Irlanda); SCC pentru prelucrare SUA</td>
+    <td>Supabase (SUA; date stocate în Irlanda)</td>
+    <td>Bază de date, stocare fișiere și autentificare</td>
+    <td>Toate datele de cont, de profil și profesionale, inclusiv datele cabinetului și logo-ul</td>
+    <td>Date stocate în UE (regiunea EU West, Irlanda); SCC pentru eventualul acces din SUA</td>
   </tr>
   <tr>
     <td>Railway (SUA)</td>
-    <td>Server backend (sincronizare portal.just.ro)</td>
-    <td>Număr dosar, CUI și denumirea entității căutate, pentru interogarea surselor publice</td>
+    <td>Server backend: sincronizare dosare (portal.just.ro), due diligence, import OCR, căutare în Legislație, verificarea abonamentului, ștergerea contului</td>
+    <td>Număr dosar, CUI și denumirea entității căutate; imaginea trimisă pentru OCR (transmisă mai departe la xAI, nestocată); textul căutării din Legislație; identificatorul contului, pentru verificarea abonamentului și ștergerea contului</td>
+    <td>Clauze Contractuale Standard (SCC)</td>
+  </tr>
+  <tr>
+    <td>Expo (650 Industries, SUA)</td>
+    <td>Serviciul de notificări push</td>
+    <td>Identificatorul push al dispozitivului (conținutul notificărilor nu este stocat de furnizor)</td>
     <td>Clauze Contractuale Standard (SCC)</td>
   </tr>
   <tr>
@@ -196,6 +220,12 @@
     <td>Clauze Contractuale Standard (SCC)</td>
   </tr>
   <tr>
+    <td>Google (Gmail)</td>
+    <td>Trimiterea e-mailurilor informative către utilizatori (notificări privind modificarea documentelor legale, informări despre serviciu) și corespondența la adresa de contact</td>
+    <td>Adresă e-mail, nume</td>
+    <td>Decizia de adecvare UE–SUA (Data Privacy Framework) &mdash; Google LLC este certificat</td>
+  </tr>
+  <tr>
     <td>openapi.ro (Rom&acirc;nia)</td>
     <td>Date din Registrul Comerțului</td>
     <td>CUI-ul entității căutate</td>
@@ -214,7 +244,7 @@
     <td>Date publice — nu se aplică restricții de transfer</td>
   </tr>
 </table>
-<p>Toți furnizorii din SUA au implementate Clauze Contractuale Standard (SCC) conform Deciziei de punere în aplicare (UE) 2021/914 a Comisiei Europene, asigurând un nivel adecvat de protecție a datelor transferate în afara SEE.</p>
+<p>Transferurile către furnizorii din SUA se bazează pe Clauze Contractuale Standard (SCC) conform Deciziei de punere în aplicare (UE) 2021/914 a Comisiei Europene sau, pentru furnizorii certificați, pe Decizia de punere în aplicare (UE) 2023/1795 privind cadrul UE–SUA de protecție a datelor (Data Privacy Framework), asigurând un nivel adecvat de protecție a datelor transferate în afara SEE.</p>
 
 <h2>6. Accesul Juridico la Datele Profesionale ale Avocaților</h2>
 
@@ -256,6 +286,7 @@
 <h2>8. Durata Retenției Datelor</h2>
 <ul>
   <li><strong>Date de cont activ:</strong> pe durata existenței contului</li>
+  <li><strong>Logo-ul cabinetului:</strong> până la eliminarea lui din Profil sau până la ștergerea contului (la ștergerea contului, fișierul este șters imediat)</li>
   <li><strong>Date după ștergerea contului:</strong> eliminate în termen de 30 de zile, cu excepția datelor necesare îndeplinirii obligațiilor legale (max. 5 ani)</li>
   <li><strong>Log-uri tehnice:</strong> nu conțin denumirile entităților căutate în modulul de due diligence; se rețin maximum 90 de zile</li>
   <li><strong>Date de facturare:</strong> 5 ani, conform obligațiilor fiscale</li>
@@ -277,6 +308,7 @@
   <li><strong>Dreptul de a depune plângere</strong> — la Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal (ANSPDCP), www.dataprotection.ro</li>
 </ul>
 <p>Răspundem solicitărilor în termen de maximum 30 de zile calendaristice.</p>
+<p><strong>Ștergerea contului direct din Aplicație.</strong> Vă puteți șterge oricând contul din <strong>Profil → Șterge contul</strong>, fără a ne contacta. Ștergerea elimină contul și datele asociate (dosare, termene, clienți, facturi, date cabinet și logo), în condițiile descrise la secțiunea 8. Ștergerea contului nu anulează un abonament activ: acesta se anulează separat, din Google Play sau App Store.</p>
 
 <h2>10. Securitatea Datelor</h2>
 <p>Aplicăm măsuri tehnice și organizatorice adecvate pentru protejarea datelor, inclusiv:</p>
